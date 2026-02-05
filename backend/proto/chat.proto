@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package chat;
+
+service ChatService {
+  // Browser sends a single message
+  rpc SendMessage(DirectMessage) returns (Empty);
+  
+  // Browser opens a stream to listen for messages
+  rpc Subscribe(UserIdentity) returns (stream DirectMessage);
+}
+
+message UserIdentity {
+  string userId = 1;
+}
+
+message Empty {}
+
+message DirectMessage {
+  string from = 1;
+  string to = 2;
+  string message = 3;
+  int64 timestamp = 4;
+}
