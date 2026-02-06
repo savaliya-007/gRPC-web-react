@@ -29,10 +29,7 @@ Starts the core gRPC server.
     node server.js
 
 # Terminal 2
-    docker run -it --rm --name envoy \
-    -p 8080:8080 \
-    -v ${PWD}/envoy.yaml:/etc/envoy/envoy.yaml \
-    envoyproxy/envoy:v1.22.0
+    docker run -it --rm --name envoy -p 8080:8080 -v ${PWD}/envoy.yaml:/etc/envoy/envoy.yaml envoyproxy/envoy:v1.22.0
 
 # Terminal 3
     cd frontend
